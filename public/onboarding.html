@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryngr — Setup</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="onboarding-wrapper">
+    <div class="onboarding-card">
+      <!-- Canceled banner (shown if user returns from Stripe without paying) -->
+      <div id="canceled-banner" style="display:none; background:#fef2f2; color:#991b1b; padding:12px 16px; border-radius:8px; margin-bottom:20px; font-size:.9rem;">
+        Payment was canceled. You can try again when you're ready.
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-bar">
+        <div class="step active" data-step="1"></div>
+        <div class="step" data-step="2"></div>
+        <div class="step" data-step="3"></div>
+        <div class="step" data-step="4"></div>
+        <div class="step" data-step="5"></div>
+      </div>
+
+      <!-- Step 1: Business info -->
+      <div class="onboarding-step" id="step-1">
+        <div class="step-label">Step 1 of 5</div>
+        <h1>Your Business</h1>
+        <p style="color:var(--gray-600); margin-bottom:24px;">Tell us about your business so we can personalise your SMS.</p>
+        <div class="form-group">
+          <label for="business-name">Business Name</label>
+          <input type="text" id="business-name" placeholder="e.g. Smith Plumbing" required>
+        </div>
+        <div class="form-group">
+          <label for="phone-number">Your Existing Phone Number</label>
+          <input type="tel" id="phone-number" placeholder="+44 7123 456789" required>
+          <p class="hint">The number you currently receive business calls on.</p>
+        </div>
+        <div class="onboarding-actions">
+          <button class="btn btn-primary" onclick="nextStep(1)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Step 2: WhatsApp -->
+      <div class="onboarding-step" id="step-2" style="display:none;">
+        <div class="step-label">Step 2 of 5</div>
+        <h1>WhatsApp Forwarding</h1>
+        <p style="color:var(--gray-600); margin-bottom:24px;">When callers reply to your auto-SMS, we'll forward their messages to your WhatsApp.</p>
+        <div class="form-group">
+          <label for="whatsapp-number">WhatsApp Number</label>
+          <input type="tel" id="whatsapp-number" placeholder="+44 7123 456789" required>
+          <p class="hint">Must be registered with WhatsApp.</p>
+        </div>
+        <div class="onboarding-actions">
+          <button class="btn btn-outline" onclick="prevStep(2)">Back</button>
+          <button class="btn btn-primary" onclick="nextStep(2)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Booking link -->
+      <div class="onboarding-step" id="step-3" style="display:none;">
+        <div class="step-label">Step 3 of 5</div>
+        <h1>Booking Link</h1>
+        <p style="color:var(--gray-600); margin-bottom:24px;">Got a Cal.com or booking page? Add it and we'll include it in your SMS.</p>
+        <div class="form-group">
+          <label for="booking-url">Cal.com Booking URL (optional)</label>
+          <input type="url" id="booking-url" placeholder="https://cal.com/yourname">
+          <p class="hint">Leave blank if you don't use online booking.</p>
+        </div>
+        <div class="onboarding-actions">
+          <button class="btn btn-outline" onclick="prevStep(3)">Back</button>
+          <button class="btn btn-primary" onclick="nextStep(3)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Step 4: SMS template -->
+      <div class="onboarding-step" id="step-4" style="display:none;">
+        <div class="step-label">Step 4 of 5</div>
+        <h1>Your SMS Template</h1>
+        <p style="color:var(--gray-600); margin-bottom:24px;">Edit the message that gets sent when you miss a call.</p>
+        <div class="form-group">
+          <label for="sms-template">SMS Message</label>
+          <textarea id="sms-template" rows="4"></textarea>
+        </div>
+        <div class="sms-preview-label">Live Preview</div>
+        <div class="sms-preview" id="sms-preview"></div>
+        <div class="onboarding-actions">
+          <button class="btn btn-outline" onclick="prevStep(4)">Back</button>
+          <button class="btn btn-primary" onclick="nextStep(4)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Step 5: Checkout -->
+      <div class="onboarding-step" id="step-5" style="display:none;">
+        <div class="step-label">Step 5 of 5</div>
+        <h1>Activate Your Account</h1>
+        <p style="color:var(--gray-600); margin-bottom:24px;">You're all set! Subscribe to start catching every missed call.</p>
+
+        <div style="border:2px solid var(--accent); border-radius:12px; padding:24px; text-align:center; margin-bottom:24px;">
+          <div style="font-weight:600; color:var(--accent); margin-bottom:4px;">RYNGR PRO</div>
+          <div style="font-size:2.5rem; font-weight:800;">$39<span style="font-size:1rem; font-weight:400; color:var(--gray-600);">/month</span></div>
+          <ul style="list-style:none; margin:20px 0 0; text-align:left; font-size:.9rem;">
+            <li style="padding:6px 0; border-bottom:1px solid var(--gray-100);">&#10003; Dedicated local phone number</li>
+            <li style="padding:6px 0; border-bottom:1px solid var(--gray-100);">&#10003; Automatic missed-call SMS replies</li>
+            <li style="padding:6px 0; border-bottom:1px solid var(--gray-100);">&#10003; WhatsApp reply forwarding</li>
+            <li style="padding:6px 0;">&#10003; Cancel anytime — no contracts</li>
+          </ul>
+        </div>
+
+        <!-- Summary of what they entered -->
+        <div style="background:var(--gray-100); border-radius:8px; padding:16px; margin-bottom:24px; font-size:.9rem;">
+          <div style="font-weight:600; margin-bottom:8px;">Your setup summary</div>
+          <div style="color:var(--gray-600);">
+            <div>Business: <strong id="summary-name"></strong></div>
+            <div>WhatsApp: <strong id="summary-whatsapp"></strong></div>
+            <div id="summary-booking-row">Booking: <strong id="summary-booking"></strong></div>
+          </div>
+        </div>
+
+        <div class="onboarding-actions" style="flex-direction:column; gap:8px;">
+          <button class="btn btn-primary btn-block" id="checkout-btn" onclick="goToCheckout()" style="font-size:1.05rem; padding:14px;">
+            Pay $39/mo &amp; Activate
+          </button>
+          <button class="btn btn-outline btn-block btn-sm" onclick="prevStep(5)">Back</button>
+        </div>
+        <p style="text-align:center; font-size:.8rem; color:var(--gray-400); margin-top:12px;">
+          Secure payment via Stripe. You can cancel anytime from Settings.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/onboarding.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryngr — Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Ryng<span>r</span></div>
+    <nav>
+      <a href="/dashboard.html">Dashboard</a>
+      <a href="/settings.html">Settings</a>
+      <a href="#" id="logout-link">Log out</a>
+    </nav>
+  </header>
+
+  <div class="container dashboard">
+    <!-- Success banner after Stripe checkout -->
+    <div id="success-banner" style="display:none; background:#dcfce7; color:#166534; padding:16px 20px; border-radius:8px; margin-bottom:24px; font-size:.95rem;">
+      <strong>Payment successful!</strong> Your account is active and your Ryngr number is being provisioned. Set up call forwarding below to start catching missed calls.
+    </div>
+
+    <h1>Dashboard</h1>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-total">—</div>
+        <div class="stat-label">Missed Calls</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-replied">—</div>
+        <div class="stat-label">Replies Received</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-rate">—</div>
+        <div class="stat-label">Reply Rate</div>
+      </div>
+    </div>
+
+    <!-- Twilio number -->
+    <div class="card" style="margin-bottom:24px;">
+      <h3 style="margin-bottom:12px;">Your Ryngr Number</h3>
+      <div class="copy-box">
+        <span id="twilio-number">Loading...</span>
+        <button onclick="copyNumber()">Copy</button>
+      </div>
+    </div>
+
+    <!-- Missed calls table -->
+    <div class="card" style="margin-bottom:24px;">
+      <h3 style="margin-bottom:16px;">Recent Missed Calls</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Caller</th>
+              <th>Time</th>
+              <th>Replied</th>
+            </tr>
+          </thead>
+          <tbody id="calls-table">
+            <tr><td colspan="3" style="text-align:center; color:var(--gray-400);">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Call forwarding instructions -->
+    <div class="info-box">
+      <h3>How to Forward Your Calls</h3>
+      <p style="color:var(--gray-400); margin-bottom:16px;">Forward unanswered calls from your existing number to your Ryngr number so we can send auto-replies.</p>
+      <ol>
+        <li><strong>iPhone:</strong> Go to <strong>Settings → Phone → Call Forwarding</strong> and enter your Ryngr number. <em>Or</em> dial <code>*61*<span class="fwd-number"></span>#</code> to forward only unanswered calls.</li>
+        <li><strong>Android:</strong> Open <strong>Phone app → Settings → Call Forwarding → Forward when unanswered</strong> and enter your Ryngr number.</li>
+        <li><strong>Landline / VoIP:</strong> Contact your provider and ask them to set up "call forward on no answer" to <code class="fwd-number"></code>.</li>
+        <li><strong>Test it:</strong> Call your business number and let it ring. You should receive an auto-SMS within seconds!</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
