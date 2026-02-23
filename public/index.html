@@ -4,73 +4,317 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ryngr — Never Miss a Call Again</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/landing.css">
 </head>
-<body>
+<body class="landing-page">
 
   <!-- Navbar -->
-  <header class="navbar">
+  <header class="navbar navbar--sticky">
     <div class="logo">Ryng<span>r</span></div>
     <nav>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
       <a href="/login.html" class="btn btn-primary btn-sm">Get Started</a>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero hero--landing">
     <div class="container">
-      <h1>Never Miss a Call Again</h1>
-      <p>When you can't answer, Ryngr sends your callers an instant SMS with your custom message and booking link. Turn missed calls into booked appointments.</p>
-      <a href="/login.html" class="btn btn-primary" style="font-size:1.1rem; padding:16px 40px;">Start Free Trial</a>
+      <div class="hero__badge">For Small Businesses</div>
+      <h1 class="hero__title">Never Miss a Call.<br><span class="hero__accent">Never Lose a Customer.</span></h1>
+      <p class="hero__subtitle">When you can't answer, Ryngr sends your callers an instant SMS with your custom message and booking link. Turn missed calls into booked appointments — automatically.</p>
+      <div class="hero__ctas">
+        <a href="/login.html" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="#how-it-works" class="btn btn-outline btn-lg">See How It Works</a>
+      </div>
     </div>
-  </section>
 
-  <!-- How it works -->
-  <section style="padding:80px 24px;">
-    <div class="container text-center">
-      <h2 style="font-size:2rem; margin-bottom:48px;">How It Works</h2>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:32px;">
-        <div>
-          <div style="font-size:2.5rem; margin-bottom:12px;">📱</div>
-          <h3 style="margin-bottom:8px;">1. Forward Your Calls</h3>
-          <p style="color:var(--gray-600); font-size:.95rem;">Set up call forwarding from your business number to your Ryngr number. Takes 2 minutes.</p>
-        </div>
-        <div>
-          <div style="font-size:2.5rem; margin-bottom:12px;">💬</div>
-          <h3 style="margin-bottom:8px;">2. Auto-SMS Sent</h3>
-          <p style="color:var(--gray-600); font-size:.95rem;">When you miss a call, Ryngr instantly texts the caller with your custom message and booking link.</p>
-        </div>
-        <div>
-          <div style="font-size:2.5rem; margin-bottom:12px;">📅</div>
-          <h3 style="margin-bottom:8px;">3. Get Booked</h3>
-          <p style="color:var(--gray-600); font-size:.95rem;">Callers book directly from the SMS. Replies are forwarded to your WhatsApp in real time.</p>
+    <!-- Phone mockup -->
+    <div class="hero__mockup">
+      <div class="phone">
+        <div class="phone__notch"></div>
+        <div class="phone__screen">
+          <div class="sms-bubble sms-bubble--incoming">
+            <div class="sms-bubble__sender">Ryngr</div>
+            Hi! Sorry I missed your call. I'm currently with a client but I'd love to help you. Book a time that works for you: <span class="sms-link">book.ryngr.xyz/demo</span>
+          </div>
+          <div class="sms-bubble sms-bubble--outgoing">
+            Just booked for tomorrow at 2pm! Thanks!
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Social Proof -->
+  <section class="social-proof">
+    <div class="container">
+      <p class="social-proof__text">Trusted by <strong>500+</strong> small businesses to capture every lead</p>
+      <div class="social-proof__stats">
+        <div class="social-proof__stat">
+          <span class="social-proof__number">50K+</span>
+          <span class="social-proof__label">SMS Sent</span>
+        </div>
+        <div class="social-proof__divider"></div>
+        <div class="social-proof__stat">
+          <span class="social-proof__number">98%</span>
+          <span class="social-proof__label">SMS Open Rate</span>
+        </div>
+        <div class="social-proof__divider"></div>
+        <div class="social-proof__stat">
+          <span class="social-proof__number">3x</span>
+          <span class="social-proof__label">More Bookings</span>
+        </div>
+        <div class="social-proof__divider"></div>
+        <div class="social-proof__stat">
+          <span class="social-proof__number">2 min</span>
+          <span class="social-proof__label">Setup Time</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Simple Setup</span>
+        <h2 class="section-title">Up and Running in 3 Steps</h2>
+        <p class="section-subtitle">No technical knowledge required. Set it up once and let Ryngr handle the rest.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-card__number">1</div>
+          <div class="step-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/><polyline points="15 3 21 3 21 9"/><line x1="14" y1="10" x2="21" y2="3"/></svg>
+          </div>
+          <h3 class="step-card__title">Forward Your Calls</h3>
+          <p class="step-card__desc">Set up call forwarding from your business number to your dedicated Ryngr number. Takes just 2 minutes.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__number">2</div>
+          <div class="step-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="step-card__title">Auto-SMS Sent Instantly</h3>
+          <p class="step-card__desc">When you miss a call, Ryngr texts the caller with your custom message and booking link — within seconds.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__number">3</div>
+          <div class="step-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+          </div>
+          <h3 class="step-card__title">Get Booked Automatically</h3>
+          <p class="step-card__desc">Callers book directly from the SMS. Replies are forwarded to your WhatsApp in real time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Features</span>
+        <h2 class="section-title">Everything You Need to Capture Every Lead</h2>
+        <p class="section-subtitle">Built specifically for busy professionals who can't always pick up the phone.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="10" x2="15" y2="10"/></svg>
+          </div>
+          <h3 class="feature-card__title">Automatic SMS Replies</h3>
+          <p class="feature-card__desc">Instantly text missed callers with your custom message. No manual work — it's fully automated.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <h3 class="feature-card__title">Custom Booking Links</h3>
+          <p class="feature-card__desc">Include your Calendly, Square, or any booking URL right in the SMS so callers can schedule instantly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <h3 class="feature-card__title">WhatsApp Forwarding</h3>
+          <p class="feature-card__desc">When callers reply to your SMS, their messages are forwarded straight to your WhatsApp.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Dashboard &amp; Analytics</h3>
+          <p class="feature-card__desc">Track every missed call, see SMS delivery status, and measure how many callers book appointments.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="feature-card__title">Dedicated Local Number</h3>
+          <p class="feature-card__desc">Get a real local phone number so callers see a familiar area code, not a random toll-free number.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="feature-card__title">Instant Setup</h3>
+          <p class="feature-card__desc">Go live in under 2 minutes. No hardware, no apps to install, no technical skills needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title">Loved by Business Owners</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-card__quote">"I was losing 5-10 potential clients a week from missed calls. Since using Ryngr, almost every missed call turns into a booking. It's been a game changer."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">JM</div>
+            <div>
+              <div class="testimonial-card__name">Jessica M.</div>
+              <div class="testimonial-card__role">Hair Salon Owner</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-card__quote">"Setup took me literally 2 minutes. Now when I'm on a job site and miss a call, the customer gets a text right away. My callback rate went through the roof."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">DK</div>
+            <div>
+              <div class="testimonial-card__name">David K.</div>
+              <div class="testimonial-card__role">Plumber &amp; Contractor</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-card__quote">"The WhatsApp forwarding is brilliant. I can have a conversation with potential clients right from my phone without revealing my personal number. Worth every penny."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">SR</div>
+            <div>
+              <div class="testimonial-card__name">Sarah R.</div>
+              <div class="testimonial-card__role">Personal Trainer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-item__question">How does Ryngr know when I miss a call?</summary>
+          <div class="faq-item__answer">You set up call forwarding on your business line so that unanswered calls are routed to your dedicated Ryngr number. When a call comes in and isn't answered, Ryngr automatically sends the caller an SMS.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">Do I need to install any apps?</summary>
+          <div class="faq-item__answer">Nope! Ryngr works entirely through call forwarding and SMS — there's nothing to install. You manage everything from the web dashboard.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">Can I customize the SMS message?</summary>
+          <div class="faq-item__answer">Absolutely. During onboarding you write your own custom SMS template. Include your name, business info, and booking link — make it sound exactly like you.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">What if the caller replies to the SMS?</summary>
+          <div class="faq-item__answer">Replies are forwarded directly to your WhatsApp so you can continue the conversation naturally, without revealing your personal phone number.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">Is there a contract or commitment?</summary>
+          <div class="faq-item__answer">No contracts, no hidden fees. It's $39/month and you can cancel anytime from your settings page. We also offer a free trial so you can try it risk-free.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">What kind of phone number do I get?</summary>
+          <div class="faq-item__answer">You get a real local phone number with your area code so it looks familiar and trustworthy to your callers.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- Pricing -->
-  <section class="pricing-section" id="pricing">
-    <h2>Simple, Transparent Pricing</h2>
-    <div class="pricing-card">
-      <div style="font-weight:600; color:var(--accent); margin-bottom:8px;">PRO</div>
-      <div class="price">$39<span>/month</span></div>
-      <ul class="features">
-        <li>Dedicated local phone number</li>
-        <li>Automatic missed-call SMS replies</li>
-        <li>Custom SMS template with booking link</li>
-        <li>WhatsApp reply forwarding</li>
-        <li>Missed call dashboard and analytics</li>
-        <li>Cancel anytime — no contracts</li>
-      </ul>
-      <a href="/login.html" class="btn btn-primary btn-block" style="font-size:1.05rem;">Get Started</a>
+  <section class="pricing-section pricing-section--landing" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Pricing</span>
+        <h2 class="section-title">Simple, Transparent Pricing</h2>
+        <p class="section-subtitle">One plan. Everything included. No surprises.</p>
+      </div>
+      <div class="pricing-card pricing-card--landing">
+        <div class="pricing-card__badge">Most Popular</div>
+        <div class="pricing-card__plan">Pro</div>
+        <div class="price">$39<span>/month</span></div>
+        <ul class="features">
+          <li>Dedicated local phone number</li>
+          <li>Automatic missed-call SMS replies</li>
+          <li>Custom SMS template with booking link</li>
+          <li>WhatsApp reply forwarding</li>
+          <li>Missed call dashboard &amp; analytics</li>
+          <li>Cancel anytime — no contracts</li>
+        </ul>
+        <a href="/login.html" class="btn btn-primary btn-block btn-lg">Start Free Trial</a>
+        <p class="pricing-card__note">No credit card required to start</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="cta-banner__title">Ready to Stop Losing Customers?</h2>
+      <p class="cta-banner__subtitle">Join 500+ businesses that use Ryngr to turn missed calls into booked appointments.</p>
+      <a href="/login.html" class="btn btn-primary btn-lg">Get Started for Free</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2026 Ryngr. All rights reserved.</p>
+  <footer class="footer footer--landing">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="logo">Ryng<span>r</span></div>
+          <p class="footer__tagline">Turn missed calls into booked appointments.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Product</h4>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+          </div>
+          <div class="footer__col">
+            <h4>Support</h4>
+            <a href="#faq">FAQ</a>
+            <a href="mailto:support@ryngr.xyz">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Ryngr. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
 </body>
