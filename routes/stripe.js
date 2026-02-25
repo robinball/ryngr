@@ -20,8 +20,8 @@ router.post("/create-checkout", async (req, res) => {
       customer_email: email,
       line_items: [{ price: process.env.STRIPE_PRICE_ID, quantity: 1 }],
       metadata: { business_id },
-      success_url: `${req.headers.origin}/dashboard.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.origin}/onboarding.html?canceled=true`,
+      success_url: `${process.env.FRONTEND_URL}/dashboard?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.FRONTEND_URL}/onboarding?canceled=true`,
     });
 
     res.json({ url: session.url });
@@ -99,7 +99,7 @@ router.post("/create-portal", async (req, res) => {
     const { customer_id } = req.body;
     const session = await stripe.billingPortal.sessions.create({
       customer: customer_id,
-      return_url: `${req.headers.origin}/settings.html`,
+      return_url: `${process.env.FRONTEND_URL}/settings`,
     });
     res.json({ url: session.url });
   } catch (err) {
